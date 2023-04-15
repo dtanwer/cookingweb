@@ -23,7 +23,7 @@ export default function Home() {
     }
     const fetchSavedRecipe= async ()=>{
       try{
-        const response =await axios.get(`http://localhost:3001/recipes/savedRecipes/ids/${userID}`);
+        const response =await axios.get(`https://cooking-api.vercel.app/recipes/savedRecipes/ids/${userID}`);
         setSavedRecipes(response.data.savedRecipes);
       }
       catch(err)
@@ -38,7 +38,7 @@ export default function Home() {
 
   const saveRecipe= async (recipeID)=>{
     try{
-      const response =await axios.put("http://localhost:3001/recipes",{recipeID,userID},{headers:{authorization:cookies.access_token}});
+      const response =await axios.put("https://cooking-api.vercel.app/recipes",{recipeID,userID},{headers:{authorization:cookies.access_token}});
       setSavedRecipes(response.data.savedRecipes)
     }
     catch(err)
